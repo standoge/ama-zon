@@ -1,0 +1,9 @@
+version = 1
+
+test_patterns = ["Tests/**"]
+
+[[analyzers]]
+name = "javascript"
+
+[[analyzers]]
+name = "csharp"
