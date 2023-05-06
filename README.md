@@ -1,5 +1,6 @@
-# hdp-project
+# Ama-zon web app 
 
-[![DeepSource](https://app.deepsource.com/gh/standoge/hdp-project.svg/?label=active+issues&show_trend=true&token=qolpTMAOH3hurkGukOHRxVY5)](https://app.deepsource.com/gh/standoge/hdp-project/?ref=repository-badge)
+[![DeepSource](https://app.deepsource.com/gh/standoge/ama-zon.svg/?label=active+issues&show_trend=true&token=qolpTMAOH3hurkGukOHRxVY5)](https://app.deepsource.com/gh/standoge/hdp-project/?ref=repository-badge)
 
-Project for "Herramientas de Productividad" signature. A web app using ASP.NET with SQL-SERVER.
+System to generate work reliability agreements for the company Ama-zon. Includes import data form `txt` file, store data 
+in `sqlserver` database, generate `pdf` file and send it to the employee's email.
