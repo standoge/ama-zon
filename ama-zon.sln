@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33627.172
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ama-zon", "ama-zon.csproj", "{2AF50C51-44D2-4919-9DA0-34B980F69F0A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2AF50C51-44D2-4919-9DA0-34B980F69F0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AF50C51-44D2-4919-9DA0-34B980F69F0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AF50C51-44D2-4919-9DA0-34B980F69F0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AF50C51-44D2-4919-9DA0-34B980F69F0A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7FDA38B8-C251-4EF3-ADE5-44E07EC89D4A}
+	EndGlobalSection
+EndGlobal
