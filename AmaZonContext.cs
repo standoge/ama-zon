@@ -17,7 +17,7 @@ public partial class AmaZonContext : DbContext
 
     public virtual DbSet<Empleado> Empleados { get; set; }
 
-    public virtual DbSet<Pai> Pais { get; set; }
+    public virtual DbSet<Pais> Pais { get; set; }
 
     public virtual DbSet<Plaza> Plazas { get; set; }
 
@@ -112,7 +112,7 @@ public partial class AmaZonContext : DbContext
                 .HasConstraintName("FK_EMPLEADO_PAIS");
         });
 
-        modelBuilder.Entity<Pai>(entity =>
+        modelBuilder.Entity<Pais>(entity =>
         {
             entity.HasKey(e => e.PaisId);
 

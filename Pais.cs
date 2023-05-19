@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ama_zon;
 
-public partial class Pai
+public partial class Pais
 {
     public int PaisId { get; set; }
 

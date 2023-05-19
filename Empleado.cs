@@ -25,5 +25,5 @@ public partial class Empleado
 
     public virtual Acuerdo Acuerdo { get; set; } = null!;
 
-    public virtual Pai Pais { get; set; } = null!;
+    public virtual Pais Pais { get; set; } = null!;
 }
