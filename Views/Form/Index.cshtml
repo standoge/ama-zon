@@ -1,8 +1,15 @@
 ﻿@model dynamic
 
 @{
-    ViewBag.Title = "title";
+    ViewBag.Title = "Formulario";
     Layout = "_Layout";
 }
 
-<h2>title</h2>
+<h2>Insert your data here</h2>
+
+<a
+    asp-controller="Form"
+    asp-action="CreatePDF"
+    class="btn btn-primary">
+    Descargar PDF
+</a>
