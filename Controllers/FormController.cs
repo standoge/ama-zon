@@ -9,7 +9,7 @@ public class FormController : Controller
     // GET
     public IActionResult Index()
     {
-        Document doc = new Document();
+        Document doc = new ();
         doc.LoadFromFile("Controllers/Templates/permanent-template.docx");
         doc.SaveToFile("wwwroot/files/output.pdf", FileFormat.PDF);
         return View();
@@ -19,7 +19,7 @@ public class FormController : Controller
     [HttpGet("form/download")]
     public async Task<FileContentResult> DownloadPdf()
     {
-        string path = "wwwroot/files/output.pdf";
+        const string path = "wwwroot/files/output.pdf";
         var fileBytes = await System.IO.File.ReadAllBytesAsync(path);
         System.IO.File.Delete(path);
         return File(fileBytes, "application/pdf", "output.pdf");
