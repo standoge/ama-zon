@@ -11,8 +11,17 @@ public class FormController : Controller
     {
         Document doc = new Document();
         doc.LoadFromFile("Controllers/Templates/permanent-template.docx");
-        doc.SaveToFile("Controllers/Templates/output.pdf", FileFormat.PDF);
-        doc.SaveToFile("wwwroot/files/fromweb.pdf", FileFormat.PDF);
+        doc.SaveToFile("wwwroot/files/output.pdf", FileFormat.PDF);
         return View();
+    }
+
+
+    [HttpGet("form/download")]
+    public async Task<FileContentResult> DownloadPdf()
+    {
+        string path = "wwwroot/files/output.pdf";
+        var fileBytes = await System.IO.File.ReadAllBytesAsync(path);
+        System.IO.File.Delete(path);
+        return File(fileBytes, "application/pdf", "output.pdf");
     }
 }
