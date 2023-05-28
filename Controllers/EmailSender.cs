@@ -1,10 +1,11 @@
 ﻿using System.Net;
 using System.Net.Mail;
+
 namespace ama_zon.Controllers;
 
 public class EmailSender : IEmailSender
 {
-    public Task SendEmailAsync(string receiver, string subject, string message)
+    public Task SendEmailAsync(string receiver, string subject, string body, MemoryStream file)
     {
         string sender = "";
         string password = "";
@@ -15,11 +16,14 @@ public class EmailSender : IEmailSender
             Credentials = new NetworkCredential(sender, password)
         };
 
-        return client.SendMailAsync(
-            new MailMessage(
-                from: sender,
-                to: receiver,
-                subject,
-                message));
+        MailMessage message = new MailMessage();
+        Attachment document = new Attachment(file, "NDA.pdf");
+        message.From = new MailAddress(sender);
+        message.To.Add(receiver);
+        message.Subject = subject;
+        message.Body = body;
+        message.Attachments.Add(document);
+
+        return client.SendMailAsync(message);
     }
 }

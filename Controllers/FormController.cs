@@ -6,6 +6,12 @@ namespace ama_zon.Controllers;
 [Route("form")]
 public class FormController : Controller
 {
+    private readonly IEmailSender _emailSender;
+    
+    public FormController(IEmailSender emailSender)
+    {
+        _emailSender = emailSender;
+    }
     // GET
     public IActionResult Index()
     {
