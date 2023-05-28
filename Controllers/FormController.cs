@@ -14,10 +14,10 @@ public class FormController : Controller
         Document doc = new();
         doc.LoadFromFile("Controllers/Templates/permanent-template.docx");
         doc.SaveToFile("wwwroot/files/output.pdf", FileFormat.PDF);
-        
-        
+
+
         var message = new MimeMessage();
-        
+
         var attachment = new MimePart("application", "pdf")
         {
             Content = new MimeContent(System.IO.File.OpenRead("wwwroot/files/output.pdf")),
@@ -25,7 +25,7 @@ public class FormController : Controller
             ContentTransferEncoding = ContentEncoding.Base64,
             FileName = "output.pdf"
         };
-        
+
         message.From.Add(new MailboxAddress("sender", ""));
         message.To.Add(new MailboxAddress("receiver", ""));
         message.Subject = "NDA";
@@ -34,12 +34,12 @@ public class FormController : Controller
         {
             Text = "Gone away"
         };
-        
-         message.Body = new Multipart("mixed")
-         {
-             attachment
-         };
-        
+
+        message.Body = new Multipart("mixed")
+        {
+            attachment
+        };
+
         using (var client = new SmtpClient())
         {
             client.Connect("smtp.gmail.com", 587, false);
