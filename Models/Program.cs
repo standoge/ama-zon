@@ -1,4 +1,5 @@
 using ama_zon;
+using ama_zon.Controllers;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,6 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Configuration.AddUserSecrets<FormController>();
 
 builder.Services.AddDbContext<AmaZonContext>(options =>
 {
