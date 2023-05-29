@@ -8,6 +8,13 @@ namespace ama_zon.Controllers;
 [Route("form")]
 public class FormController : Controller
 {
+    private readonly IConfiguration _configuration;
+
+    public FormController(IConfiguration configuration)
+    {
+        _configuration = configuration;
+    }
+
     // GET
     public IActionResult Index()
     {
@@ -33,6 +40,9 @@ public class FormController : Controller
     {
         var message = new MimeMessage();
 
+        string email = _configuration["FormController:email"];
+        string password = _configuration["FormController:password"];
+
         var attachment = new MimePart("application", "pdf")
         {
             Content = new MimeContent(System.IO.File.OpenRead("wwwroot/files/output.pdf")),
@@ -41,7 +51,7 @@ public class FormController : Controller
             FileName = "output.pdf"
         };
 
-        message.From.Add(new MailboxAddress("sender", ""));
+        message.From.Add(new MailboxAddress("sender", email));
         message.To.Add(new MailboxAddress("receiver", ""));
         message.Subject = "Acuerdo de confidencialidad laboral";
         message.Body = new Multipart("mixed")
@@ -54,7 +64,7 @@ public class FormController : Controller
             client.Connect("smtp.gmail.com", 587, false);
 
             // Note: only needed if the SMTP server requires authentication
-            client.Authenticate("", "");
+            client.Authenticate(email, password);
 
             client.Send(message);
             client.Disconnect(true);
