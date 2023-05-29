@@ -15,7 +15,22 @@ public class FormController : Controller
         doc.LoadFromFile("Controllers/Templates/permanent-template.docx");
         doc.SaveToFile("wwwroot/files/output.pdf", FileFormat.PDF);
 
+        return View();
+    }
 
+
+    [HttpGet("/download")]
+    public async Task<FileContentResult> DownloadPdf()
+    {
+        const string path = "wwwroot/files/output.pdf";
+        var fileBytes = await System.IO.File.ReadAllBytesAsync(path);
+        System.IO.File.Delete(path);
+        return File(fileBytes, "application/pdf", "output.pdf");
+    }
+
+    [Route("/send")]
+    public async Task<IActionResult> SendForm()
+    {
         var message = new MimeMessage();
 
         var attachment = new MimePart("application", "pdf")
@@ -28,13 +43,7 @@ public class FormController : Controller
 
         message.From.Add(new MailboxAddress("sender", ""));
         message.To.Add(new MailboxAddress("receiver", ""));
-        message.Subject = "NDA";
-        message.Body = new TextPart(
-            "plain")
-        {
-            Text = "Gone away"
-        };
-
+        message.Subject = "Acuerdo de confidencialidad laboral";
         message.Body = new Multipart("mixed")
         {
             attachment
@@ -51,22 +60,6 @@ public class FormController : Controller
             client.Disconnect(true);
         }
 
-        return View();
-    }
-
-
-    [HttpGet("/download")]
-    public async Task<FileContentResult> DownloadPdf()
-    {
-        const string path = "wwwroot/files/output.pdf";
-        var fileBytes = await System.IO.File.ReadAllBytesAsync(path);
-        System.IO.File.Delete(path);
-        return File(fileBytes, "application/pdf", "output.pdf");
-    }
-
-    [HttpPost]
-    public IActionResult SendForm()
-    {
-        return Ok();
+        return View(nameof(Index));
     }
 }
