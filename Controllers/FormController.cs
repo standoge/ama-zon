@@ -9,7 +9,7 @@ public class FormController : Controller
     // GET
     public IActionResult Index()
     {
-        Document doc = new ();
+        Document doc = new();
         doc.LoadFromFile("Controllers/Templates/permanent-template.docx");
         doc.SaveToFile("wwwroot/files/output.pdf", FileFormat.PDF);
         return View();
