@@ -1,0 +1,22 @@
+﻿<div class="row">
+    <form action="/PageUI2/Index" method="post">
+        <div class="col-md-3 form-horizontal">
+            <br />
+            <input type="text" class="form-control" name="Nombre" placeholder="Nombre" required>
+            <br />
+            <input type="text" class="form-control" name="Apellidos" placeholder="Apellidos" required>
+            <br />
+            <textarea class="form-control" name="Direccion" cols="40" rows="5" placeholder="Escribe la direccion.." required>
+            </textarea>
+            <br />
+            <input class="form-control" name="Fecha" type="date" requerid>
+        </div>
+        <div class="col-md-3 form-horizontal">
+            <br />
+            <br />
+            <button asp-controller="PageUI2" asp-action="Index" class="btn btn-primary">
+                Generar
+            </button>
+        </div>
+    </form>
+</div>
