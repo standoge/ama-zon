@@ -15,7 +15,7 @@ namespace ama_zon.Controllers
         [HttpPost]
         public ActionResult Index(string Nombre, string Apellidos, string Direccion, DateTime Fecha)
         {
-            string nombre = Nombre + " "+ Apellidos;
+            string nombre = Nombre + " " + Apellidos;
             Document doc = new Document("Controllers/Templates/permanent-template.docx");
             Document newdoc = doc.Clone();
             newdoc.SaveToFile("Controllers/Templates/output.docx");
