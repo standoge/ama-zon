@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Spire.Doc;
 using Spire.Doc.Documents;
-using Word = Microsoft.Office.Interop.Word;
+
 
 namespace ama_zon.Controllers
 {
