@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewData["Title"] = "Upload File";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Subir archivo TXT</h1>
+
+<form method="post" enctype="multipart/form-data">
+    <fieldset>
+        <div id="errors" class="alert-danger">@ViewBag.Exception</div>
+        <div id="messages" class="alert-info">@ViewBag.MessageOk</div>
+        <div>
+            <label for="File">Seleccione el archivo a cargar</label>
+            <input type="file" name="File" value="" class="form-control" />
+            <span class="text-danger">@ViewBag.Error</span>
+        </div>
+        <div class="mt-2">            
+            <input type="submit" class="btn btn-primary btn-lg btn-block" value="Guardar" />
+        </div>
+    </fieldset>
+</form>
+
