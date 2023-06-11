@@ -23,13 +23,13 @@ namespace ama_zon.Controllers
         {
             try
             {
-                var file = collection.Files.GetFile("File");                
+                var file = collection.Files.GetFile("File");
 
                 if (file == null)
                 {
                     ViewBag.Error = "El archivo no puede ser nulo";
                     return View("UploadForm");
-                }                
+                }
 
                 if (!IsTxtFile(file))
                 {
@@ -49,7 +49,7 @@ namespace ama_zon.Controllers
                 ViewBag.MessageOk = "Los empleados se han guardado exitosamente";
                 return View("UploadForm");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 ViewBag.MessageOk = string.Empty;
                 ViewBag.Exception = "Ocurrió un error al procesar la información: " + ex.Message;
