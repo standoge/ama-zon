@@ -2,14 +2,24 @@
     <form action="/PageUI2/Index" method="post">
         <div class="col-md-3 form-horizontal">
             <br />
-            <input type="text" class="form-control" name="Nombre" placeholder="Nombre" required>
+            <input type="text" class="form-control" name="Nombre" placeholder="Digitar Nombre" required>
             <br />
-            <input type="text" class="form-control" name="Apellidos" placeholder="Apellidos" required>
+            <input type="text" class="form-control" name="Apellidos" placeholder=" Digitar Apellidos" required>
             <br />
-            <textarea class="form-control" name="Direccion" cols="40" rows="5" placeholder="Escribe la direccion.." required>
-            </textarea>
+            <textarea class="form-control" name="Direccion" placeholder="Digitar su Direccion"  cols="40" rows="3" maxlength="250" required></textarea>
             <br />
-            <input class="form-control" name="Fecha" type="date" requerid>
+            <input class="form-control" name="Fecha" type="date" required>
+            <br />
+            <input class="form-control" name="Correo" placeholder="Digitar Correo" type="email" required>
+            <br />
+            <input list="Paises" name="Pais" class="form-control" placeholder="Seleccionar Pais" required>
+            <datalist id="Paises">
+                <option value="El Salvador"/>
+                <option value="Mexico"/>
+                <option value="Panama" />
+                <option value="Colombia" />
+                <option value="Guatemala" />
+            </datalist>
         </div>
         <div class="col-md-3 form-horizontal">
             <br />
