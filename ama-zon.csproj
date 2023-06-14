@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>ama_zon</RootNamespace>
     <UserSecretsId>67a29d7a-53aa-4b92-b73f-47004e13b81a</UserSecretsId>
@@ -13,12 +12,12 @@
   <ItemGroup>
     <PackageReference Include="FreeSpire.Doc" Version="10.8.1" />
     <PackageReference Include="LinqToCsv" Version="1.5.0" />
-    <PackageReference Include="MailKit" Version="4.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.13" />
   </ItemGroup>
 
   <ItemGroup>
