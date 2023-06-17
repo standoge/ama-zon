@@ -30,7 +30,7 @@ namespace ama_zon.Controllers
 
             return View();
         }
-           
+
 
     }
 }
