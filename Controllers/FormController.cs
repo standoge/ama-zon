@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MimeKit;
 using Spire.Doc;
+using System.Diagnostics.Contracts;
 using SmtpClient = MailKit.Net.Smtp.SmtpClient;
 
 namespace ama_zon.Controllers;
@@ -18,10 +19,6 @@ public class FormController : Controller
     // GET
     public IActionResult Index()
     {
-        Document doc = new();
-        doc.LoadFromFile("Controllers/Templates/permanent-template.docx");
-        doc.SaveToFile("wwwroot/files/output.pdf", FileFormat.PDF);
-
         return View();
     }
 
@@ -71,5 +68,28 @@ public class FormController : Controller
         }
 
         return View(nameof(Index));
+    }
+
+    [HttpPost]
+    public ActionResult Index(string Nombre, string Apellidos, string Direccion, string pais, string departamento)
+    {
+        DateTime Fecha;
+        string nombre = Nombre + " " + Apellidos;
+        Fecha = DateTime.Today;
+        Document document = new Document("Controllers/Templates/permanent-template.docx");
+        Document newdoc = document.Clone();
+        newdoc.SaveToFile("Controllers/Templates/output.docx");
+        newdoc.LoadFromFile("Controllers/Templates/output.docx");
+        newdoc.Replace("$nombre_receptor", nombre, false, true);
+        newdoc.Replace("$direccion_receptor", Direccion, false, true);
+        newdoc.Replace("$fecha_emision", Fecha.ToString("D"), false, true);
+        newdoc.Replace("$pais", pais, false, true);
+        newdoc.Replace("$departamento", departamento, false, true);
+        newdoc.SaveToFile("Controllers/Templates/output.docx");
+        newdoc.Close();
+
+        newdoc.LoadFromFile("Controllers/Templates/output.docx");
+        newdoc.SaveToFile("wwwroot/files/output.pdf", FileFormat.PDF);
+        return View();
     }
 }

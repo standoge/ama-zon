@@ -4,8 +4,43 @@
     ViewBag.Title = "Formulario";
     Layout = "_Layout";
 }
-
-<h2>Insert your data here</h2>
+<form action="/Form/Index" method="post">
+    <h2>Insert your data here</h2>
+    <div class="col-md-3 form-horizontal">
+    <br />
+    <input type="text" class="form-control" name="Nombre" placeholder="Digitar Nombre" required>
+    <br />
+    <input type="text" class="form-control" name="Apellidos" placeholder=" Digitar Apellidos" required>
+    <br />
+    <textarea class="form-control" name="Direccion" placeholder="Digitar su Direccion" cols="40" rows="3" maxlength="250" required></textarea>
+    <br />
+    <input class="form-control" name="Correo" placeholder="Digitar Correo" type="email" required>
+    <br />
+    <input list="Paises" name="Pais" class="form-control" placeholder="Seleccionar Pais" required>
+    <datalist id="Paises">
+        <option value="El Salvador" />
+        <option value="Mexico" />
+        <option value="Panama" />
+        <option value="Colombia" />
+        <option value="Guatemala" />
+    </datalist>
+    <br />
+    <input list="Departamentos" name="Departamento" class="form-control" placeholder="Seleccionar Departamento" required>
+    <datalist id="Departamentos">
+        <option value="RRHH" />
+        <option value="Logistica" />
+        <option value="Atencion al Cliente" />
+        <option value="Economia" />
+        <option value="Marketing" />
+        </datalist>
+    <br />
+    <br />
+    <button asp-controller="Form" asp-action="Index" class="btn btn-primary">
+        Generar
+    </button>
+    <br />
+    </div>
+</form>
 
 <a
     asp-controller="Form"
