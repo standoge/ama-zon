@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Contact Tech Site</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#btnEnviar').click(function () {
+                // Obtiene los valores ingresados en los campos
+                var nombre = $('#txtNombre').val();
+                var email = $('#txtEmail').val();
+                var mensaje = $('#txtMensaje').val();
+                
+                // Crea una instancia de la aplicación Outlook
+                var outlookApp = new ActiveXObject("Outlook.Application");
+                
+                // Crea un nuevo correo electrónico
+                var mailItem = outlookApp.CreateItem(0);
+                
+                // Configura los destinatarios, asunto y cuerpo del correo
+                mailItem.Subject = "Contacto desde Tech Site";
+                mailItem.Body = "Nombre: " + nombre + "\nEmail: " + email + "\nMensaje: " + mensaje;
+                
+                // Muestra el formulario de composición de correo de Outlook
+                mailItem.Display();
+            });
+        });
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Contact Tech Site</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="txtNombre">Nombre:</label>
+                            <input type="text" class="form-control" id="txtNombre" />
+                        </div>
+                        <div class="form-group">
+                            <label for="txtEmail">Email:</label>
+                            <input type="email" class="form-control" id="txtEmail" />
+                        </div>
+                        <div class="form-group">
+                            <label for="txtMensaje">Mensaje:</label>
+                            <textarea class="form-control" id="txtMensaje" rows="4"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary" id="btnEnviar">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
