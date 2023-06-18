@@ -1,4 +1,4 @@
-using System.Data.Common;
+/*using System.Data.Common;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using ama_zon.DataBase;
@@ -34,3 +34,4 @@ namespace ama_zon.Controllers
 
     }
 }
+*/
