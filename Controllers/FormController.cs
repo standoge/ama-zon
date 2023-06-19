@@ -19,9 +19,6 @@ public class FormController : Controller
     // GET
     public IActionResult Index()
     {
-        Document doc = new Document();
-        doc.LoadFromFile("Controllers/Templates/permanent-template.docx");
-        doc.SaveToFile("wwwroot/files/output.pdf", FileFormat.PDF);
         return View();
     }
 
@@ -89,10 +86,11 @@ public class FormController : Controller
         newdoc.Replace("$pais", pais, false, true);
         newdoc.Replace("$departamento", departamento, false, true);
         newdoc.SaveToFile("Controllers/Templates/output.docx");
-        newdoc.Close();
 
         newdoc.LoadFromFile("Controllers/Templates/output.docx");
         newdoc.SaveToFile("wwwroot/files/output.pdf", FileFormat.PDF);
+        
+        newdoc.Close();
         return View();
     }
 }
