@@ -23,6 +23,7 @@ public class FormController : Controller
     }
 
 
+    // funcion que ejecuta la la logica para descargar el PDF
     [HttpGet("/download")]
     public async Task<FileContentResult> DownloadPdf()
     {
@@ -32,11 +33,13 @@ public class FormController : Controller
         return File(fileBytes, "application/pdf", "output.pdf");
     }
 
+    // funcion que ejecuta la la logica para enviar el correo
     [Route("/send")]
     public async Task<IActionResult> SendForm()
     {
         var message = new MimeMessage();
 
+        // obtencion de credenciales desde el sistema de secretos de .NET
         string email = _configuration["FormController:email"];
         string password = _configuration["FormController:password"];
 
