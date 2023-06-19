@@ -19,6 +19,9 @@ public class FormController : Controller
     // GET
     public IActionResult Index()
     {
+        Document doc = new Document();
+        doc.LoadFromFile("Controllers/Templates/permanent-template.docx");
+        doc.SaveToFile("wwwroot/files/output.pdf", FileFormat.PDF);
         return View();
     }
 
@@ -49,7 +52,7 @@ public class FormController : Controller
         };
 
         message.From.Add(new MailboxAddress("sender", email));
-        message.To.Add(new MailboxAddress("receiver", ""));
+        message.To.Add(new MailboxAddress("receiver", "sya94572@zbock.com"));
         message.Subject = "Acuerdo de confidencialidad laboral";
         message.Body = new Multipart("mixed")
         {
